@@ -1,0 +1,17 @@
+version: '2'
+
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile
+        image: bloogrox/go-affise
+        command: go run *.go
+        volumes:
+          - .:/go/src/app
+
+    test:
+        image: bloogrox/go-affise
+        volumes:
+            - .:/go/src/app
